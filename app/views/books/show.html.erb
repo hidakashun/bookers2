@@ -1,0 +1,36 @@
+<%= render 'new', books: @books, book: @book, user: @user %><!--@books, bookいらなくないか？いらなくないか？-->
+
+<div class="col-md-8 offset-md-1">
+<h2>Book detail</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+      <%= link_to user_path(@user.id) do%>
+      <%= image_tag @user.get_profile_image(100,100) %><!--このbookを投稿したuserの画像にする？-->
+        <br>
+      <%= @user.name %><!--このbookを投稿したuserの名前にする？-->
+      <% end %>
+      </td>
+      <td>
+        <span><%= link_to @book.title, book_path(@book.id) %></span>
+      </td>
+      <td>
+        <span><%= @book.body %></span>
+      </td>
+      <% if @book.user == current_user %>
+      <td>
+        <div class="actions">
+        <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %>
+        </div>
+      </td>
+      <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+

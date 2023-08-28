@@ -1,0 +1,41 @@
+ <%= render 'books/new', books: @books, book: @book, user: @user %><!--済-->
+  <div class="col-md-8 offset-md-1"><!--済-->
+<h2>Books</h2><!--済-->
+<table class="table table-hover table-inverse"><!--テーブルのレイアウト、table-inverse色の反転--><!--済-->
+  <thead><!--済-->
+    <tr><!--済-->
+      <th></th><!--済-->
+      <th>Title</th><!--済-->
+      <th>Opinion</th><!--済-->
+      <th colspan="3"></th><!--済-->
+    </tr><!--済-->
+  </thead><!--済-->
+
+  <tbody><!--済-->
+
+    <% @books.each do |book| %><!--eachメゾットについて復習しましょう--><!--済-->
+
+      <tr><!--済-->
+        <td><!--済-->
+          <%= link_to user_path(book.user.id) do%><!--済-->
+          <%= image_tag book.user.get_profile_image(100, 100) %><!--済-->
+          <% end %><!--済-->
+        </td><!--済-->
+        <td><!--済-->
+          <span><%= link_to book.title, book_path(book.id) %></span><!--済-->
+        </td><!--済-->
+        <td><!--済-->
+          <span><%= book.body %></span><!--済-->
+        </td><!--済-->
+        </td><!--済-->
+      </tr><!--済-->
+    <% end %><!--済-->
+  </tbody><!--済-->
+</table><!--済-->
+    </div><!--済-->
+  </div><!--済-->
+</div><!--済-->
+
+
+
+

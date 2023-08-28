@@ -1,0 +1,102 @@
+<!DOCTYPE html><!--済-->
+<html><!--済-->
+  <head><!--済-->
+    <title>Bookers2</title><!--済-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"><!--済-->
+    <%= csrf_meta_tags %><!--済-->
+    <%= csp_meta_tag %><!--済-->
+
+    <script src="https://kit.fontawesome.com/cdce8a28a2.js" crossorigin="anonymous"></script><!--済-->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--済-->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><!--済-->
+  </head><!--済-->
+
+  <body class="d-flex flex-column vh-100"><!--済-->
+    <header class="bg-dark text-white"><!--pt-0 pb-0済-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><!--済-->
+        <div class="container"><!--済-->
+
+      <%= link_to root_path do%><!--済-->
+        <span class="navbar-brand">Bookers</span><!--済-->
+      <% end %><!--済-->
+      <ul class="navbar-nav ml-auto"><!--済-->
+
+
+      <% if user_signed_in? %><!--ログイン済みの場合、% if user_signed_in? %>から% else %>間のコードが表示されます。--><!--済-->
+       <li><!--済-->
+        <%= link_to user_path(current_user), class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-home" aria-hidden="true"></i> Home<!--済-->
+        <% end %><!--済-->
+       </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to users_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-users" aria-hidden="true"></i> Users<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to books_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-book-open" aria-hidden="true"></i> Books<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Log out<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <% else %><!--ログインしていない場合、% else %>から% end %>間のコードが表示されます。--><!--済-->
+
+      <li><!--済-->
+        <%= link_to root_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-home" aria-hidden="true"></i> Home<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to about_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-link" aria-hidden="true"></i> About<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to new_user_registration_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-user-plus" aria-hidden="true"></i> Sign up<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+      <li><!--済-->
+        <%= link_to new_user_session_path, class:"nav-link text-light" do%><!--済-->
+          <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log in<!--済-->
+        <% end %><!--済-->
+      </li><!--済-->
+
+    <% end %><!--済-->
+    </ul><!--済-->
+    </div><!--済-->
+  </div><!--済-->
+  </nav><!--済-->
+  </header><!--済-->
+<main><!--済-->
+
+  <div>
+  <%= flash[:notice] %><!--済-->
+  </div><!--済-->
+
+</main><!--済-->
+
+    <%= yield %><!--済-->
+
+  <fotter><!--済-->
+    <div class="container mt-5"><!--済-->
+  	<div class="row"><!--済-->
+    	<div class="mx-auto"><!--済-->
+    		<p>CopyRight Infratop.inc</p><!--済-->
+    	</div><!--済-->
+    </div><!--済-->
+  </div><!--済-->
+  </fotter><!--済-->
+  </body><!--済-->
+</html><!--済-->
